@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KayttajanTiedotController">
+   <children>
+      <Pane fx:id="kayttajanTiedot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="54.0" layoutY="345.0" text="Sähköposti:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="255.0" text="Etunimi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="300.0" text="Sukunimi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="54.0" layoutY="330.0" prefHeight="12.0" prefWidth="493.0" />
+            <Button layoutX="221.0" layoutY="493.0" mnemonicParsing="false" onAction="#muokkaaKayttajaa" prefHeight="25.0" prefWidth="65.0" text="Muokkaa" />
+            <Button layoutX="314.0" layoutY="493.0" mnemonicParsing="false" onAction="#poistaKayttaja" prefHeight="25.0" prefWidth="65.0" text="Poista" />
+            <Label layoutX="54.0" layoutY="210.0" text="Käyttäjätunnus:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="54.0" layoutY="285.0" prefHeight="12.0" prefWidth="493.0" />
+            <Separator layoutX="54.0" layoutY="240.0" prefHeight="12.0" prefWidth="493.0" />
+            <Text fx:id="txtKayttajatunnus" layoutX="290.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtEtunimi" layoutX="290.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtSukunimi" layoutX="290.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtSposti" layoutX="290.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="muokkaaKayttajaa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="600.0" visible="false">
+         <children>
+            <Label layoutX="54.0" layoutY="347.0" text="Sähköposti:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="257.0" text="Etunimi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="302.0" text="Sukunimi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="54.0" layoutY="332.0" prefHeight="12.0" prefWidth="493.0" />
+            <Button fx:id="btnTallennaKayttaja" disable="true" layoutX="221.0" layoutY="493.0" mnemonicParsing="false" onAction="#tallennaKayttaja" prefHeight="25.0" prefWidth="65.0" text="Tallenna" />
+            <Button layoutX="314.0" layoutY="493.0" mnemonicParsing="false" onAction="#peruutaKayttajanMuokkaus" prefHeight="25.0" prefWidth="65.0" text="Peruuta" />
+            <Label layoutX="54.0" layoutY="212.0" text="Käyttäjätunnus:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="54.0" layoutY="287.0" prefHeight="12.0" prefWidth="493.0" />
+            <Separator layoutX="54.0" layoutY="242.0" prefHeight="12.0" prefWidth="493.0" />
+            <TextField fx:id="txtfKayttajatunnus" layoutX="272.0" layoutY="210.0" />
+            <TextField fx:id="txtfEtunimi" layoutX="272.0" layoutY="255.0" />
+            <TextField fx:id="txtfSukunimi" layoutX="272.0" layoutY="300.0" />
+            <TextField fx:id="txtfSposti" layoutX="272.0" layoutY="345.0" />
+            <Label fx:id="lblVirheKayttajatunnus" layoutX="429.0" layoutY="214.0" text="Käyttäjätunnus olemassa" textFill="RED" visible="false" />
+            <Label fx:id="lblVirheSposti" layoutX="429.0" layoutY="349.0" text="Sähköposti olemassa" textFill="RED" visible="false" />
+            <Label layoutX="54.0" layoutY="392.0" text="Uusi salasana:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="54.0" layoutY="377.0" prefHeight="12.0" prefWidth="493.0" />
+            <Label fx:id="lblVirheSalasana1" layoutX="429.0" layoutY="394.0" text="Salasanan tulee sisältää" textFill="RED" visible="false" />
+            <PasswordField fx:id="pswfSalasana" layoutX="272.0" layoutY="390.0" promptText="Vapaahetoinen" />
+            <Label fx:id="lblVirheSalasana2" layoutX="429.0" layoutY="413.0" text="iso kirjain, numero ja" textFill="RED" visible="false" />
+            <Label fx:id="lblVirheSalasana3" layoutX="429.0" layoutY="433.0" text="vähintään 8 merkkiä" textFill="RED" visible="false" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

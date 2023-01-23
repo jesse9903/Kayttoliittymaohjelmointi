@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HarjoitustyoController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Sovellus">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#suljeSovellus" text="Sulje" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tiedot">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#avaaSovelluksenTiedot" text="Tietoja sovelluksesta" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <Pane prefHeight="574.0" prefWidth="188.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="594.0" mnemonicParsing="false" onAction="#avaaLisaa" prefHeight="25.0" prefWidth="75.0" text="Lisää" />
+            <Separator layoutX="174.0" layoutY="34.0" orientation="VERTICAL" prefHeight="507.0" prefWidth="13.0" />
+            <Separator layoutX="25.0" layoutY="96.0" prefHeight="0.0" prefWidth="130.0" />
+            <Label layoutX="23.0" layoutY="24.0" text="Näkymä:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <VBox fx:id="levytilausHaku" layoutX="23.0" layoutY="116.0" prefHeight="210.0" prefWidth="134.0" visible="false">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menubHaeLevytilaus" mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" text="Tilaustunnus">
+                    <items>
+                      <MenuItem fx:id="menuLevTilTunnus" mnemonicParsing="false" text="Tilaustunnus" />
+                      <MenuItem fx:id="menuLevTilPvm" mnemonicParsing="false" text="Päivämäärä" />
+                        <MenuItem fx:id="menuLevTilHinta" mnemonicParsing="false" text="Hinta" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeLevytilaus" prefHeight="25.0" prefWidth="131.0" promptText="Tilaustunnus">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheLevTilHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Virhe" textFill="RED" visible="false" />
+                  <Label fx:id="lblVirheLevTilHaku2" text="YYYY-MM-DD" textFill="RED" visible="false">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="btnLevTilHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeLevytilausta" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="asiakastilausHaku" layoutX="23.0" layoutY="116.0" prefHeight="217.0" prefWidth="134.0" visible="false">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menubHaeAsiakastilaus" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Tilaustunnus">
+                    <items>
+                      <MenuItem fx:id="menuAsTilTunnus" mnemonicParsing="false" text="Tilaustunnus" />
+                      <MenuItem fx:id="menuAsTilPvm" mnemonicParsing="false" text="Päivämäärä" />
+                        <MenuItem fx:id="menuAsTilHinta" mnemonicParsing="false" text="Hinta" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeAsTilaus" prefHeight="25.0" prefWidth="145.0" promptText="Tilaustunnus">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheAsTilHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Virhe" textFill="RED" visible="false" />
+                  <Label fx:id="lblVirheAsTilHaku2" text="YYYY-MM-DD" textFill="RED" visible="false">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="btnAsTilHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeAsiakastilausta" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="albumiHaku" layoutX="23.0" layoutY="116.0" prefHeight="217.0" prefWidth="134.0">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menuAlbuminHaku" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Albumin nimi">
+                    <items>
+                      <MenuItem fx:id="menuAlbuminNimi" mnemonicParsing="false" text="Albumin nimi" />
+                      <MenuItem fx:id="menuArtisti" mnemonicParsing="false" text="Artisti" />
+                        <MenuItem fx:id="menuLevy_yhtio" mnemonicParsing="false" text="Levy-yhtiö" />
+                        <MenuItem fx:id="menuEAN" mnemonicParsing="false" text="EAN" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeAlbumia" prefHeight="25.0" prefWidth="131.0" promptText="Albumin nimi">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheAlbumiHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Syötä vain numeroita" textFill="RED" visible="false">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="btnAlbuminHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeAlbumia" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <MenuButton fx:id="nakyma" layoutX="24.0" layoutY="54.0" mnemonicParsing="false" text="Albumit">
+               <items>
+                  <MenuItem fx:id="menuAlbumit" mnemonicParsing="false" text="Albumit" />
+                  <MenuItem fx:id="menuTilaukset" mnemonicParsing="false" text="Tilaukset" />
+                  <MenuItem fx:id="menuAsiakkaat" mnemonicParsing="false" text="Asiakkaat" />
+                  <MenuItem fx:id="menuMyyjat" mnemonicParsing="false" text="Myyjät" />
+               </items>
+            </MenuButton>
+            <VBox fx:id="asiakasHaku" layoutX="23.0" layoutY="116.0" prefHeight="228.0" prefWidth="134.0" visible="false">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menubHaeAsiakas" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Asiakkaan nimi">
+                    <items>
+                      <MenuItem fx:id="menuAsNimi" mnemonicParsing="false" text="Asiakkaan nimi" />
+                      <MenuItem fx:id="menuAsTunnus" mnemonicParsing="false" text="Asiakastunnus" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeAsiakas" prefHeight="25.0" prefWidth="131.0" promptText="Nimi">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheAsiakasHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Virhe" textFill="RED" visible="false" />
+                  <Button fx:id="btnAsiakasHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeAsiakkaat" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox fx:id="myyjaHaku" layoutX="23.0" layoutY="116.0" prefHeight="224.0" prefWidth="134.0" visible="false">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menubHaeMyyja" mnemonicParsing="false" prefHeight="25.0" prefWidth="159.0" text="Myyjän nimi">
+                    <items>
+                      <MenuItem fx:id="menuMyyjaNimi" mnemonicParsing="false" text="Myyjän nimi" />
+                      <MenuItem fx:id="menuMyyjaTunnus" mnemonicParsing="false" text="Myyjätunnus" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeMyyja" prefHeight="25.0" prefWidth="131.0" promptText="Myyjän nimi">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheMyyjaHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Virhe" textFill="RED" visible="false" />
+                  <Button fx:id="btnMyyjaHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeMyyja" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <Button layoutX="99.0" layoutY="594.0" mnemonicParsing="false" onAction="#paivitaSivu" prefHeight="25.0" prefWidth="75.0" text="Päivitä sivu" />
+            <VBox fx:id="kayttajaHaku" layoutX="23.0" layoutY="116.0" prefHeight="228.0" prefWidth="134.0" visible="false">
+               <children>
+                  <Label text="Haku:" textFill="#9c9c9c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="menubKayttajanHaku" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Käyttäjän nimi">
+                    <items>
+                      <MenuItem fx:id="menuKayttajanNimi" mnemonicParsing="false" text="Käyttäjän nimi" />
+                      <MenuItem fx:id="menuKayttajatunnus" mnemonicParsing="false" text="Käyttäjätunnus" />
+                    </items>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <TextField fx:id="txtfHaeKayttaja" prefHeight="25.0" prefWidth="131.0" promptText="Käyttäjän nimi">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="lblVirheKayttajaHaku" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="135.0" text="Virhe" textFill="RED" visible="false" />
+                  <Button fx:id="btnKayttajaHaku" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#haeKayttaja" prefHeight="26.0" prefWidth="52.0" text="Hae">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane fx:id="spMyyjat" prefHeight="675.0" prefWidth="659.0" visible="false">
+               <content>
+                  <AnchorPane fx:id="myyjat" minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="659.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="8.0" text="Tunnus:" textFill="#9c9c9c">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="155.0" layoutY="8.0" text="Nimi:" textFill="#9c9c9c">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="listMyyjat" layoutY="39.0" prefHeight="634.0" prefWidth="659.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spAsiakkaat" prefHeight="675.0" prefWidth="659.0" visible="false">
+              <content>
+                <AnchorPane fx:id="asiakkaat" minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="659.0">
+                     <children>
+                        <TabPane prefHeight="672.0" prefWidth="659.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab fx:id="tabAsiakkaat" text="Asiakkaat">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="586.0">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="8.0" text="Tunnus:" textFill="#9c9c9c">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="155.0" layoutY="8.0" text="Nimi:" textFill="#9c9c9c">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <ListView fx:id="listAsiakkaat" layoutY="39.0" prefHeight="608.0" prefWidth="659.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="tabKayttajat" text="Käyttäjät">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="8.0" text="Tunnus:" textFill="#9c9c9c">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="155.0" layoutY="8.0" text="Nimi:" textFill="#9c9c9c">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <ListView fx:id="listKayttajat" layoutY="39.0" prefHeight="608.0" prefWidth="659.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spTilaukset" prefHeight="675.0" prefWidth="659.0" visible="false">
+              <content>
+                <AnchorPane layoutX="659.0" layoutY="622.0" minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="650.0">
+                     <children>
+                        <Pane fx:id="tilaukset" prefHeight="622.0" prefWidth="659.0">
+                           <children>
+                              <TabPane prefHeight="672.0" prefWidth="659.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab fx:id="tabLevytilaukset" text="Levytilaukset">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="659.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="8.0" text="Tunnus:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="155.0" layoutY="8.0" text="Hinta:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="299.0" layoutY="8.0" text="Pvm:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listLevytilaukset" layoutY="39.0" prefHeight="608.0" prefWidth="659.0" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="tabAsiakastilaukset" text="Asiakastilaukset">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="8.0" text="Tunnus:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="155.0" layoutY="8.0" text="Hinta:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="299.0" layoutY="8.0" text="Pvm:" textFill="#9c9c9c">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <ListView fx:id="listAsiakastilaukset" layoutY="39.0" prefHeight="608.0" prefWidth="661.0" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <ScrollPane fx:id="spAlbumit" prefHeight="685.0" prefWidth="671.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="659.0">
+                     <children>
+                        <GridPane fx:id="albumit" prefHeight="686.0" prefWidth="671.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

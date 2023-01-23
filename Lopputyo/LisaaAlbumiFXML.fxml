@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LisaaAlbumiController">
+   <children>
+      <Pane fx:id="lisaaAlbumi" prefHeight="576.0" prefWidth="596.0">
+         <children>
+            <ImageView fx:id="imgAlbuminKuva" fitHeight="199.0" fitWidth="180.0" layoutX="203.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Kuvat/kuvaa_ei_loydy.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="60.0" layoutY="310.0" text="Nimi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="350.0" text="Artisti:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="390.0" text="Levy-yhtiö:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="430.0" text="Julkaisuvuosi:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="470.0" text="Myynti:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="59.0" layoutY="335.0" prefHeight="12.0" prefWidth="493.0" />
+            <Separator layoutX="59.0" layoutY="375.0" prefHeight="12.0" prefWidth="493.0" />
+            <Separator layoutX="59.0" layoutY="415.0" prefHeight="12.0" prefWidth="493.0" />
+            <Separator layoutX="59.0" layoutY="455.0" prefHeight="12.0" prefWidth="493.0" />
+            <Button fx:id="btnTallennaUusiAlbumi" disable="true" layoutX="220.0" layoutY="512.0" mnemonicParsing="false" onAction="#tallennaUusiAlbumi" prefHeight="25.0" prefWidth="65.0" text="Tallenna" />
+            <Button layoutX="300.0" layoutY="512.0" mnemonicParsing="false" onAction="#peruutaAlbuminLisays" prefHeight="25.0" prefWidth="65.0" text="Peruuta" />
+            <Label layoutX="60.0" layoutY="270.0" text="EAN:" textFill="#9c9c9c">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutX="59.0" layoutY="295.0" prefHeight="12.0" prefWidth="493.0" />
+            <TextField fx:id="txtfEAN" layoutX="219.0" layoutY="268.0" />
+            <TextField fx:id="txtfNimi" layoutX="219.0" layoutY="308.0" />
+            <TextField fx:id="txtfArtisti" layoutX="219.0" layoutY="348.0" />
+            <TextField fx:id="txtfLevy_yhtio" layoutX="219.0" layoutY="388.0" />
+            <TextField fx:id="txtfJulkaisuvuosi" layoutX="219.0" layoutY="428.0" />
+            <TextField fx:id="txtfMyynti" layoutX="219.0" layoutY="470.0" />
+            <Button layoutX="402.0" layoutY="211.0" mnemonicParsing="false" onAction="#lisaaKuva" text="Lisää kuva" />
+            <Label fx:id="lblVirhe2" layoutX="410.0" layoutY="431.0" text="Syötä vain numeroita" textFill="RED" visible="false" />
+            <Label fx:id="lblVirhe1" layoutX="417.0" layoutY="272.0" text="Syötä vain numeroita" textFill="RED" visible="false" />
+            <Label fx:id="lblVirhe3" layoutX="410.0" layoutY="475.0" text="Syötä vain numeroita" textFill="RED" visible="false" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
